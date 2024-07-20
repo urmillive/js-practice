@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const x = new Promise((resolve) => {
+            resolve("radha")
+        });
+
+        console.log('urmil');
+
+        for (let index = 0; index < 10; index++) {
+
+            x.then((message) => {
+                console.log(message);
+            }).catch((error) => {
+                console.error("Error:", error);
+            });
+            queueMicrotask(() => {
+                console.log('check')
+            })
+        }
+
+        console.log('final')
+
+
+    </script>d
+</body>
+
+</html>

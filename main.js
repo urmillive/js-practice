@@ -73,21 +73,60 @@
 // sum(1, 2)
 
 
-function sum(num1, num2, fnToCall) {
-    let result = num1 + num2;
-    fnToCall(result);
+// function sum(num1, num2, fnToCall) {
+//     let result = num1 + num2;
+//     fnToCall(result);
+// }
+
+// function display1(data) {
+//     console.log('====================================');
+//     console.log("result of the sum is : ", data);
+//     console.log('====================================');
+// }
+
+// function display2(data) {
+//     console.log('====================================');
+//     console.log("Sum result is : ", data);
+//     console.log('====================================');
+// }
+
+// sum(1, 2, display1);
+
+function customSlice(str, startIndex, endIndex) {
+    let result = "";
+    for (let i = 0; i < str.length; i++) {
+        if (i >= startIndex && i < endIndex) {
+            result = result + str[ i ];
+        }
+    }
+    return result;
 }
 
-function display1(data) {
-    console.log('====================================');
-    console.log("result of the sum is : ", data);
-    console.log('====================================');
-}
+// mystring = "Urmil Rupareliya"
+// console.log(mystring.slice(2, 5));
+// console.log(customSlice(mystring, 2, 5))
 
-function display2(data) {
-    console.log('====================================');
-    console.log("Sum result is : ", data);
-    console.log('====================================');
-}
+str = "hari krishna"
+console.log(str.replace("krishna", "Krushna"))
 
-sum(1, 2, display1);
+str2 = "hare Krushna hare krushna krushna krushna hare hare"
+const chanting = str2.split(" ")
+console.log(chanting)
+
+String.prototype.customSplit = function (separator) {
+    const result = [];
+    let str = '';
+    for (let i = 0; i < this.length; i++) {
+        if (this[ i ] !== separator) {
+            str += this[ i ];
+        } else {
+            result.push(str);
+            str = '';
+        }
+    }
+    result.push(str);
+    return result;
+};
+
+const chanting2 = str2.customSplit(" ")
+console.log(chanting2)
